@@ -1,0 +1,19 @@
+     1                                 %line 1+1 helloworld.asm
+     2                                 [section .text]
+     3                                 [global _start]
+     4                                 
+     5                                 _start:
+     6 00000000 BA0E000000              mov edx,len
+     7 00000005 B9[00000000]            mov ecx,msg
+     8 0000000A BB01000000              mov ebx,1
+     9 0000000F B804000000              mov eax,4
+    10 00000014 CD80                    int 0x80
+    11                                 
+    12 00000016 B801000000              mov eax,1
+    13 0000001B CD80                    int 0x80
+    14                                 
+    15                                 [section .data]
+    16                                 
+    17 00000000 48656C6C6F2C20776F-    msg db 'Hello, world!',0xa
+    18 00000000 726C64210A         
+    19                                 len equ $ - msg
